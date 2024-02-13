@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PDF AI Summarization Tool</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <h1>Welcome to the PDF AI Summarization Tool!</h1>
+        <p class="letter-animation">
+            This tool allows you to summarize PDF files with text in it. Simply use the "upload <br>
+            PDF file" button to choose a PDF file that you want to summarize, then click the <br>
+            "Summarize!" button. A summarization of the text should then appear below. You can <br>
+            use the tool as many times as you want, so if you refresh the page, the summary should <br>
+            disappear and you can upload another PDF file.<br>
+        </p>
+        <p class="choose">
+            <label class="file-label">Choose PDF file:</label>
+            <button type="button" id="pdfButton" class="file-button" onclick="openFileInput()">Choose File</button>
+            <input type="file" id="pdfInput" class="file-input" onchange="displayFileName()" accept="application/pdf" style="display: none;">
+            <span id="fileNameDisplay"></span>
+        </p>
+        <script>
+            function openFileInput() {
+                document.getElementById('pdfInput').click();
+            }
+            function displayFileName() {
+                const fileInput = document.getElementById('pdfInput');
+                const fileNameDisplay = document.getElementById('fileNameDisplay');
+                fileNameDisplay.textContent = fileInput.files.length > 0 ? fileInput.files[0].name : 'No file chosen';
+            }
+        </script>
+    </body>
+</html>
